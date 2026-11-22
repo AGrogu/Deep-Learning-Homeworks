@@ -1,0 +1,111 @@
+{
+  "track": "cv",
+  "model": "yolo26n.pt",
+  "revision": "ultralytics==8.4.216; sha256=9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "dataset": "BCCD; https://github.com/Shenggan/BCCD_Dataset; MIT",
+  "classes": [
+    "RBC",
+    "WBC",
+    "Platelets"
+  ],
+  "n_train": 254,
+  "n_val": 54,
+  "n_test": 56,
+  "params_total": 2572280,
+  "baseline": {
+    "split": "test",
+    "coco_map50": 0.0,
+    "heuristic_map50": 0.007043676417517002,
+    "heuristic_ap50_per_class": {
+      "RBC": 0.013460374783866982,
+      "WBC": 0.007670654468684025,
+      "Platelets": 0.0
+    }
+  },
+  "final": {
+    "split": "test",
+    "map50": 0.928879753882928,
+    "map50_95": 0.6461687428848711,
+    "precision": 0.8888885853830456,
+    "recall": 0.8570238770416543,
+    "per_class": {
+      "RBC": {
+        "precision": 0.8561057624581943,
+        "recall": 0.748313010435308,
+        "map50": 0.8855905392590195,
+        "map50_95": 0.6424415692061074
+      },
+      "WBC": {
+        "precision": 0.9910321795459036,
+        "recall": 0.9827586206896551,
+        "map50": 0.9943548387096773,
+        "map50_95": 0.7846125017632606
+      },
+      "Platelets": {
+        "precision": 0.819527814145039,
+        "recall": 0.84,
+        "map50": 0.906693883680087,
+        "map50_95": 0.5114521576852453
+      }
+    }
+  },
+  "ablation": {
+    "parameter": "imgsz",
+    "split": "val",
+    "main": {
+      "value": 640,
+      "map50": 0.9277598629390568,
+      "map50_95": 0.6506844116928927,
+      "seconds": 474.0432395830285
+    },
+    "alternative": {
+      "value": 320,
+      "map50": 0.9303820613509138,
+      "map50_95": 0.6385524873180217,
+      "seconds": 243.4675410410855
+    }
+  },
+  "errors": {
+    "tp": 586,
+    "class": 0,
+    "localization": 21,
+    "background": 211,
+    "missed": 103
+  },
+  "device": "mps",
+  "train_time_sec": 474.0432395830285,
+  "fast_mode": false,
+  "train_args": {
+    "epochs": 60,
+    "imgsz": 640,
+    "batch": 16,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "lrf": 0.01,
+    "weight_decay": 0.0005,
+    "warmup_epochs": 3,
+    "patience": 15,
+    "seed": 0,
+    "deterministic": true,
+    "val": true,
+    "pretrained": true,
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "degrees": 0.0,
+    "translate": 0.1,
+    "scale": 0.2,
+    "fliplr": 0.5,
+    "flipud": 0.5,
+    "hsv_h": 0.01,
+    "hsv_s": 0.2,
+    "hsv_v": 0.2,
+    "close_mosaic": 0,
+    "plots": true,
+    "save": true,
+    "nms": false
+  },
+  "run_times": {
+    "heuristic": 0.015849916962906718,
+    "train": 474.0432395830285
+  }
+}
